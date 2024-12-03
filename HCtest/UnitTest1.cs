@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 
-namespace HCtest
+namespace HealthCareABApi.Tests
 {
     public class AvailabilityControllerTests
     {
