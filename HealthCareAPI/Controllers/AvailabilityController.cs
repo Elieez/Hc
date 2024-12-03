@@ -15,12 +15,10 @@ namespace HealthCareABApi.Controllers
     public class AvailabilityController : ControllerBase
     {
         private readonly IAvailabilityRepository _availabilityRepository;
-        private readonly UserService _userService;
 
-        public AvailabilityController(IAvailabilityRepository availabilityRepository, UserService userService)
+        public AvailabilityController(IAvailabilityRepository availabilityRepository)
         {
             _availabilityRepository = availabilityRepository;
-            _userService = userService;
         }
 
         [HttpGet]
