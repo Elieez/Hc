@@ -62,7 +62,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-Console.WriteLine("hello");
+Console.WriteLine("hello world");
 
 // Configure JWT settings
 // Retrieve the "JwtSettings" section from the app's configuration (e.g., appsettings.json).
