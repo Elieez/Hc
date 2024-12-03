@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HCtest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb598060e83b2011d80c1898a6d4e001580fcd55")]
 [assembly: System.Reflection.AssemblyProductAttribute("HCtest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HCtest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
