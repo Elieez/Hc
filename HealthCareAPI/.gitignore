@@ -1,0 +1,57 @@
+# Visual Studio-filer
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Bygg- och publiceringsfiler
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+*.csproj.user
+*.csproj.nuget.cache
+
+# Paket och beroenden
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Kompilerings- och build-filer
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Användarspecifika filer
+*.rsuser
+.idea/
+*.DotSettings.user
+
+# Konfigurationsfiler för secrets
+secrets.json
+appsettings.Development.json
+
+# Systemspecifika filer
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE-specifika inställningar
+*.CodeAnalysisLog.xml
+*.ruleset
+*.runsettings
+.vscode/
+
+# Mac-specifika filer
+.DS_Store
+
+# Windows-specifika filer
+[Dd]esktop.ini
+$RECYCLE.BIN/
