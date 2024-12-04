@@ -32,8 +32,10 @@ namespace HealthCareABApi.Controllers
                 return BadRequest("Appointment date must be in the future.");
 
             var existingAppointments = await _service.GetByCaregiverIdAsync(appointment.CaregiverId);
-            if (existingAppointments.Any(a => a.DateTime == appointment.DateTime))
+            if (existingAppointments != null && existingAppointments.Any(a => a.DateTime == appointment.DateTime))
+            {
                 return Conflict("Appointment already exists for the selected caregiver and time.");
+            }
 
             try
             {

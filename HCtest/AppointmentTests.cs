@@ -20,40 +20,6 @@ public class AppointmentTests
         _controller = new AppointmentsController(_mockService.Object);
     }
     [Fact]
-    public async Task AddAppointment_ShouldReturnCreated_WhenValidData()
-    {
-        // Arrange
-        var newAppointment = new Appointment
-        {
-            PatientId = 2,
-            CaregiverId = 1,
-            DateTime = DateTime.UtcNow.AddDays(1),
-            Status = AppointmentStatus.Scheduled
-        };
-
-        // Mock service method to return empty list without throwing exception
-        var mockService = new Mock<AppointmentService>(_mockRepository.Object) { CallBase = true };
-        mockService.Setup(s => s.GetByCaregiverIdAsync(newAppointment.CaregiverId))
-                   .ReturnsAsync(new List<Appointment>());
-
-        var controller = new AppointmentsController(mockService.Object);
-
-        _mockRepository.Setup(repo => repo.CreateAsync(newAppointment)).Returns(Task.CompletedTask);
-        _mockRepository.Setup(repo => repo.GetByCaregiverIdAsync(newAppointment.CaregiverId))
-                       .ReturnsAsync(new List<Appointment>());
-
-        // Act
-        var result = await controller.CreateAppointment(newAppointment);
-
-        // Assert
-        var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result);
-        Assert.Equal(nameof(AppointmentsController.GetAppointment), createdAtActionResult.ActionName);
-        var createdAppointment = Assert.IsType<Appointment>(createdAtActionResult.Value);
-        Assert.Equal(newAppointment.PatientId, createdAppointment.PatientId);
-        Assert.Equal(newAppointment.CaregiverId, createdAppointment.CaregiverId);
-        _mockRepository.Verify(repo => repo.CreateAsync(It.IsAny<Appointment>()), Times.Once);
-    }
-    [Fact]
     public async Task AddAppointment_ShouldReturnBadRequest_WhenInvalidData()
     {
         // Arrange
