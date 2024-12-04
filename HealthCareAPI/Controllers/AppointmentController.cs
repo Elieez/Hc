@@ -25,6 +25,16 @@ namespace HealthCareABApi.Controllers
             if (appointment == null)  // Check if the appointment data is null
                 return BadRequest("Invalid appointment data.");  // Return a BadRequest if data is invalid
 
+            if (appointment.CaregiverId <= 0)
+                return BadRequest("CaregiverId is required.");
+
+            if (appointment.DateTime <= DateTime.UtcNow)
+                return BadRequest("Appointment date must be in the future.");
+
+            var existingAppointments = await _service.GetByCaregiverIdAsync(appointment.CaregiverId);
+            if (existingAppointments.Any(a => a.DateTime == appointment.DateTime))
+                return Conflict("Appointment already exists for the selected caregiver and time.");
+
             try
             {
                 // Calling the service layer to create the appointment
